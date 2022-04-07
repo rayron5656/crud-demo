@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,18 @@ export class LoginComponent implements OnInit {
 
   isAuthenticated:boolean = false;
 
-  constructor() { }
+  private readonly EMAIL_KEY = 'Email';
+
+  constructor(private _router:Router) { 
+    console.log(localStorage.getItem(this.EMAIL_KEY))
+    
+  }
 
   ngOnInit(): void {
+    if (localStorage.getItem(this.EMAIL_KEY) === 'abc@gmail.com') {
+      this._router.navigate(['dashboard']);
+      
+    }
   }
 
   onLogin(formValue:any){
@@ -20,8 +30,9 @@ export class LoginComponent implements OnInit {
     if (formValue.email === "abc@gmail.com" && formValue.password == 'a12345') {
       this.isAuthenticated = true;
       if (formValue.remember = true) {
-        
+        localStorage.setItem(this.EMAIL_KEY,formValue.email);
       }
+      this._router.navigate(['dashboard']);
       
     }
     else{

@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { CoursesComponent } from './Components/courses/courses.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 const appRoute:Routes = [
   {path:'',component:LoginComponent},
@@ -26,6 +27,7 @@ const appRoute:Routes = [
     LoginComponent,
     DashboardComponent,
     CoursesComponent,
+    MenuComponent,
    
   ],
   imports: [
