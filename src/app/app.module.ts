@@ -33,7 +33,7 @@ const appRoute:Routes = [
     AppRoutingModule,
     NgbModule,
     RouterModule.forRoot(appRoute),
-    FormsModule,
+    FormsModule
     
   ],
   providers: [],
