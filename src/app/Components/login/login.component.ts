@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   private readonly EMAIL_KEY = 'Email';
 
   constructor(private _router:Router) { 
-    console.log(localStorage.getItem(this.EMAIL_KEY))
+    
     
   }
 
@@ -23,13 +23,14 @@ export class LoginComponent implements OnInit {
       this._router.navigate(['dashboard']);
       
     }
+    
   }
 
   onLogin(formValue:any){
     console.log(formValue);
     if (formValue.email === "abc@gmail.com" && formValue.password == 'a12345') {
       this.isAuthenticated = true;
-      if (formValue.remember = true) {
+      if (formValue.remember == true) {
         localStorage.setItem(this.EMAIL_KEY,formValue.email);
       }
       this._router.navigate(['dashboard']);
